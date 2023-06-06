@@ -23,8 +23,8 @@ public class Permission extends Models {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "screen")
-    private Screen screen;
+//    @Column(name = "screen")
+//    private Screen screen;
 
 
     

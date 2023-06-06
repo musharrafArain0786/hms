@@ -4,9 +4,7 @@ package com.hms.entity;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Getter
 @Setter
@@ -14,13 +12,21 @@ import javax.persistence.Table;
 @Table(name = "bill")
 public class Bill {
 
-    @Column(name = "room_alotment")
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="bill_id")
+    private Long billId;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="room_alotment_id")
     private RoomAlotment alotment;
 
-    @Column(name = "test_patient")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "test_patient_id")
     private TestPatient testPatient;
 
-    @Column(name = "operation_result")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "operation_result_id")
     private OperationResult operationResult;
 
     @Column(name = "totadays")

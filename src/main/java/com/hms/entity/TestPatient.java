@@ -21,7 +21,8 @@ public class TestPatient extends Models {
     @Column(name="test_patient_id")
     private Long testPatientId;
 
-    @Column(name = "test")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "test_id")
     private Test test;
 
     @ManyToOne(fetch = FetchType.LAZY)

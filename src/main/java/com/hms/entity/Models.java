@@ -5,13 +5,15 @@ import lombok.Setter;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Inheritance;
 import javax.persistence.Table;
 import java.sql.Timestamp;
 
 @Getter
 @Setter
-@Entity
-@Table(name = "models")
+//@Inheritance
+//@Entity
+//@Table(name = "models")
 public class Models {
     @Column(name = "created_by")
     private Integer createdBy;
