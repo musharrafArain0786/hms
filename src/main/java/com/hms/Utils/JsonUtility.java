@@ -2,11 +2,10 @@ package com.hms.Utils;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.hms.enums.HibernateProxyTypeAdapter;
-import com.hms.model.request.Request;
 import com.hms.model.request.UserTypeRequest;
 import org.json.JSONObject;
 
-import static com.hms.enums.ResponseMessge.SUCCESS;
+import static com.hms.enums.ResponseMessge.ADD_SUCCESS;
 import static com.hms.enums.ResponseMessge.UNKNOWN_ERROR;
 
 public class JsonUtility {
@@ -21,8 +20,8 @@ public class JsonUtility {
 
     public static String success(){
         JSONObject obj = new JSONObject();
-        obj.put("code",SUCCESS.getCode());
-        obj.put("description",SUCCESS.getMessage());
+        obj.put("code",ADD_SUCCESS.getCode());
+        obj.put("description",ADD_SUCCESS.getMessage());
         return obj.toString();
     }
 

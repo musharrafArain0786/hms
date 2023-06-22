@@ -2,6 +2,7 @@ package com.hms.service.impl;
 
 import com.hms.Utils.JsonUtility;
 import com.hms.entity.UserType;
+import com.hms.mapper.ModelToEntityMapper;
 import com.hms.model.request.UserTypeRequest;
 import com.hms.repository.UserTypeRepository;
 import com.hms.service.UserTypeService;
@@ -20,8 +21,9 @@ public class UserTypeServiceImpl implements UserTypeService {
     public String add(UserTypeRequest request) {
      try {
 
-         UserType usertype = JsonUtility.convertJsonToEntity(request, UserType.class);
+         UserType usertype = ModelToEntityMapper.convertUserTypeRequestToEntity(request, UserType.class);
          UserType us = userTypeRepository.save(usertype);
+         log.info("user type id {}:  ",us.getUserTypeId());
          return JsonUtility.success();
 
 

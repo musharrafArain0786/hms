@@ -11,11 +11,11 @@ import javax.validation.constraints.Size;
 @Setter
 
 public class UserTypeRequest {
-//    @ApiModelProperty(position=1)
-//    @Pattern(regexp = "^[a-zA-Z]*$",message = "user type must contain only Letters")
-//    @Size(min=4, message="usertype minSize(4)")
-//    @Size(max=20, message="user type maxSize(20)")
-//    @NotNull(message = "user type must not be null")
+    @ApiModelProperty(position=1)
+    @Pattern(regexp = "^[a-zA-Z]*$",message = "user type must contain only Letters")
+    @Size(min=4, message="usertype minSize(4)")
+    @Size(max=20, message="user type maxSize(20)")
+    @NotNull(message = "user type must not be null")
     private String userType;
 
     @Override

@@ -8,8 +8,9 @@ import lombok.Setter;
 @AllArgsConstructor
 public enum ResponseMessge {
 
-    SUCCESS("00","Success"),
+    ADD_SUCCESS("00","Record successfully add"),
     UNKNOWN_ERROR("500","Unknown Error");
+
 
     private String code;
     private String message;
