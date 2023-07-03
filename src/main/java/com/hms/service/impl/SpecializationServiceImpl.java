@@ -2,6 +2,7 @@ package com.hms.service.impl;
 
 import com.hms.Utils.JsonUtility;
 import com.hms.entity.Specialization;
+import com.hms.enums.ResponseMessage;
 import com.hms.mapper.ModelToEntityMapper;
 import com.hms.model.request.SpecializationRequest;
 import com.hms.repository.SpeciliazationRepository;
@@ -27,7 +28,7 @@ public class SpecializationServiceImpl implements SpecializationService {
             JsonUtility.failure();
             log.info("exception -> : {}",ex.toString());
         }
-        return JsonUtility.success();
+        return JsonUtility.success(ResponseMessage.RECORD_ADD.getCode(), ResponseMessage.RECORD_ADD.getMessage());
     }
 
 }

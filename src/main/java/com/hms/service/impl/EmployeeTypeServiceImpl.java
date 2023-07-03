@@ -2,10 +2,11 @@ package com.hms.service.impl;
 
 import com.hms.Utils.JsonUtility;
 import com.hms.entity.EmployeeType;
+import com.hms.service.EmployeeTypeService;
+import com.hms.enums.ResponseMessage;
 import com.hms.mapper.ModelToEntityMapper;
 import com.hms.model.request.EmployeeTypeRequest;
 import com.hms.repository.EmployeeTypeRepository;
-import com.hms.service.EmployeeTypeService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,6 +30,6 @@ public class EmployeeTypeServiceImpl implements EmployeeTypeService {
             log.error("exception -> :  {}",ex.toString());
             JsonUtility.failure();
         }
-        return JsonUtility.success();
+        return JsonUtility.success(ResponseMessage.RECORD_ADD.getCode(), ResponseMessage.RECORD_ADD.getMessage());
     }
 }

@@ -2,10 +2,11 @@ package com.hms.service.impl;
 
 import com.hms.Utils.JsonUtility;
 import com.hms.entity.Blood;
+import com.hms.service.BloodService;
+import com.hms.enums.ResponseMessage;
 import com.hms.mapper.ModelToEntityMapper;
 import com.hms.model.request.BloodRequest;
 import com.hms.repository.BloodRepository;
-import com.hms.service.BloodService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,7 +25,7 @@ public class BloodServiceImpl implements BloodService {
             Blood bloodEntity = bloodRepository.save(blood);
             log.info("blood id : {}",bloodEntity.getBloodId());
 
-            return JsonUtility.success();
+            return JsonUtility.success(ResponseMessage.RECORD_ADD.getCode(),ResponseMessage.RECORD_ADD.getMessage());
         }catch (Exception ex){
             log.error("exception -> :  {}",ex.toString());
             return JsonUtility.failure();

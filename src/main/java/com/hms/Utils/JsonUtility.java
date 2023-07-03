@@ -1,12 +1,12 @@
 package com.hms.Utils;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.hms.enums.HibernateProxyTypeAdapter;
+import com.hms.mapper.UserTypeModel;
 import com.hms.model.request.UserTypeRequest;
 import org.json.JSONObject;
 
-import static com.hms.enums.ResponseMessge.ADD_SUCCESS;
-import static com.hms.enums.ResponseMessge.UNKNOWN_ERROR;
+import static com.hms.enums.ResponseMessage.SUCCESS;
+import static com.hms.enums.ResponseMessage.UNKNOWN_ERROR;
 
 public class JsonUtility {
 
@@ -18,12 +18,25 @@ public class JsonUtility {
         return GSON.fromJson( GSON.toJson(request),className);
     }
 
-    public static String success(){
+    public static String success(String code, String description){
         JSONObject obj = new JSONObject();
-        obj.put("code",ADD_SUCCESS.getCode());
-        obj.put("description",ADD_SUCCESS.getMessage());
+        obj.put("code",code);
+        obj.put("description",description);
         return obj.toString();
     }
+    public static String success(Object classObj,String code, String description){
+        JSONObject obj = new JSONObject();
+        obj.put("code",code);
+        obj.put("description",description);
+        obj.put("data",classObj);
+        return obj.toString();
+    }
+    public static String success(UserTypeModel classObj){
+        JSONObject obj = new JSONObject();
+        obj.put("userType",classObj);
+        return obj.toString();
+    }
+
 
     public static String failure(){
         JSONObject obj = new JSONObject();

@@ -1,4 +1,4 @@
-package com.hms.enums;
+package com.hms.config;
 
 import com.google.gson.Gson;
 import com.google.gson.TypeAdapter;

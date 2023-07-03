@@ -2,7 +2,6 @@ package com.hms.mapper;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.hms.entity.UserType;
 import com.hms.model.request.BloodRequest;
 import com.hms.model.request.EmployeeTypeRequest;
 import com.hms.model.request.SpecializationRequest;
