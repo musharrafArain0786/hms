@@ -2,6 +2,7 @@ package com.hms.service.impl;
 
 import com.hms.Utils.JsonUtility;
 import com.hms.entity.Blood;
+import com.hms.mapper.ModelToEntityMapper;
 import com.hms.service.BloodService;
 import com.hms.enums.ResponseMessage;
 import com.hms.mapper.ModelToEntityMapper;
@@ -28,7 +29,8 @@ public class BloodServiceImpl implements BloodService {
             return JsonUtility.success(ResponseMessage.RECORD_ADD.getCode(),ResponseMessage.RECORD_ADD.getMessage());
         }catch (Exception ex){
             log.error("exception -> :  {}",ex.toString());
-            return JsonUtility.failure();
+//            return JsonUtility.failure();
+            return null;
         }
     }
 }

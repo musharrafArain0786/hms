@@ -14,7 +14,6 @@ public class JsonUtility {
     private static final GsonBuilder GSON_BUILDER = new GsonBuilder();
 
     public static <T> T convertJsonToEntity(UserTypeRequest request ,Class<T> className){
-//        GSON_BUILDER.registerTypeAdapterFactory(HibernateProxyTypeAdapter.FACTORY)
         return GSON.fromJson( GSON.toJson(request),className);
     }
 

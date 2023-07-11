@@ -1,11 +1,11 @@
 package com.hms.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.Column;
+import jakarta.persistence.MappedSuperclass;
 import lombok.Getter;
 import lombok.Setter;
-import org.json.JSONPropertyIgnore;
 
-import javax.persistence.*;
 import java.sql.Timestamp;
 
 @Getter
@@ -22,16 +22,16 @@ public class Models {
     private Integer modifiedBy;
 
     @JsonIgnore
-    @Column(name = "created_date")
-    private Timestamp createdDate;
+    @Column(name="created_date",columnDefinition = "timestamp default current_timestamp")
+    private Timestamp timestamp;
 
     @JsonIgnore
     @Column(name = "modified_date")
     private Timestamp modifiedDate;
 
     @JsonIgnore
-    @Column(name = "active")
-    private Integer active;
+    @Column(name = "active",columnDefinition = "integer default 1")
+    private Integer active=1;
 
 
 }

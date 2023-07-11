@@ -25,7 +25,6 @@ public class SpecializationServiceImpl implements SpecializationService {
             log.info("specialization id:  {}",specialization.getSpecializationId());
 
         }catch (Exception ex){
-            JsonUtility.failure();
             log.info("exception -> : {}",ex.toString());
         }
         return JsonUtility.success(ResponseMessage.RECORD_ADD.getCode(), ResponseMessage.RECORD_ADD.getMessage());

@@ -2,11 +2,7 @@ package com.hms.mapper;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.hms.config.HibernateProxyTypeAdapter;
-import com.hms.entity.UserType;
 import org.modelmapper.ModelMapper;
-
-import java.util.Optional;
 
 public class EntityToModelMapper {
 

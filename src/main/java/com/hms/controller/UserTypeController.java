@@ -1,19 +1,16 @@
 package com.hms.controller;
 
-import com.hms.Utils.JsonUtility;
-import com.hms.enums.ResponseMessage;
 import com.hms.model.request.UserTypeRequest;
 import com.hms.service.UserTypeService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
-import java.util.Arrays;
 import java.util.List;
 
 
@@ -42,7 +39,7 @@ public class UserTypeController {
         if(!list.isEmpty()){
             return list;
         }
-        return Arrays.asList(JsonUtility.success(ResponseMessage.NO_RECORD_FOUND.getCode(), ResponseMessage.NO_RECORD_FOUND.getMessage()));
+        return null;//Arrays.asList(JsonUtility.success(ResponseMessage.NO_RECORD_FOUND.getCode(), ResponseMessage.NO_RECORD_FOUND.getMessage()));
     }
 
     @ApiOperation(value = "get all users", notes = "executes getUserTypeById endpoint")

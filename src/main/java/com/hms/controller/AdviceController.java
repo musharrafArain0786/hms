@@ -1,26 +1,26 @@
 package com.hms.controller;
 
 import com.hms.model.request.ApiError;
-import com.hms.model.request.ExceptionResponse;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.MissingServletRequestParameterException;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 
 @RestControllerAdvice
 public class AdviceController extends ResponseEntityExceptionHandler {
 
-    @Override
+//    @Override
     protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex,
             HttpHeaders headers,
             HttpStatus status,
@@ -38,7 +38,7 @@ public class AdviceController extends ResponseEntityExceptionHandler {
     }
 
 
-    @Override
+//    @Override
     protected ResponseEntity<Object> handleMissingServletRequestParameter(
             MissingServletRequestParameterException ex, HttpHeaders headers,
             HttpStatus status, WebRequest request) {
@@ -50,5 +50,11 @@ public class AdviceController extends ResponseEntityExceptionHandler {
                 apiError, new HttpHeaders(), apiError.getStatus());
     }
 
+    @ExceptionHandler({ AccessDeniedException.class })
+    public ResponseEntity<Object> handleAccessDeniedException(
+            Exception ex, WebRequest request) {
+        return new ResponseEntity<Object>(
+                "Access denied message here", new HttpHeaders(), HttpStatus.FORBIDDEN);
+    }
 
 }

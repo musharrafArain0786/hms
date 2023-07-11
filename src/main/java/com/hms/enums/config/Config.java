@@ -1,4 +1,4 @@
-package com.hms.config;
+package com.hms.enums.config;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
