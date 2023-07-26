@@ -1,6 +1,5 @@
 package com.hms.model.request;
 
-import io.swagger.annotations.ApiModelProperty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
@@ -11,7 +10,7 @@ import lombok.Setter;
 @Setter
 
 public class UserTypeRequest {
-    @ApiModelProperty(position=1)
+//    @ApiModelProperty(position=1)
     @Pattern(regexp = "^[a-zA-Z]*$",message = "user type must contain only Letters")
     @Size(min=4, message="usertype minSize(4)")
     @Size(max=20, message="user type maxSize(20)")

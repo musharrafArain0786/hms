@@ -3,7 +3,7 @@ package com.hms.service.impl;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.hms.Utils.JsonUtility;
-import com.hms.enums.config.Config;
+import com.hms.config.Config;
 import com.hms.entity.UserType;
 
 import com.hms.enums.ResponseMessage;
